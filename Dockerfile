@@ -13,6 +13,9 @@ RUN git clone https://github.com/php-memcached-dev/php-memcached && \
     git checkout -b php7 origin/php7 && \
     yes '' | phpize && ./configure && yes '' | make && make install
 
+COPY ./conf/zmq.ini /etc/php.d/50-zmq.ini
+COPY ./conf/memcached.ini /etc/php.d/50-memcached.ini
+
 RUN ln -sf /dev/stdout /var/log/httpd/access_log && \
     ln -sf /dev/stderr /var/log/httpd/error_log
 
