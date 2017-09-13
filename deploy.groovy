@@ -1,4 +1,7 @@
 node {
+    stage('Allow?'){
+         input message: 'Can this build go out?', ok: 'YES', submitter: 'siosphere'
+    }
     stage('Checkout'){
        git branch: 'master', url: 'https://github.com/siosphere/virge-router.git'
        echo "face"
